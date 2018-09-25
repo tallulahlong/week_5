@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+        <div class="bottomAnim">
+        <div class="grid-container">
+                <div class="header">Bone Collector</div>
+                
+                <div class="container">
+                <div class="section">roof 
+                    </div>
+                
+                    <div class="container">
+                <div class="section1">
+                    <div id= "random-number">
+                    <h2><span id = "rando">random number</span></h2>
+                </div>
+                </div>
+                    <div class="win">
+                        <div id="wins">
+                                wins:<span id = "howmany_wins">0</span>
+                </div>
+                    <div class="loss">
+                        <div id="losses">
+                            losses:<span id = "howmany_losses">0</span>
+                        </div></div> 
+                        <div class="col-md-12">
+                                <div class= "container">
+                                <div class="row">
+                                  <div class="col-md-1">
+                                      
+                                    <button class="dog-1"><img src="assets/images/dog1.jpg" hieght="200px" width="200px"></div></button>
+                                
+                                        <div class="col-md-1">
+                                            
+                                                <button class="dog-2"><img src="assets/images/dog2.jpg" hieght="200px" width="200px"></div></button>
+                                            
+                                                <div class="col-md-1">
+                                                    
+                                                        <button class="dog-3"><img src="assets/images/dog3.jpg" hieght="100px" width="125px"></div></button>
+                                                    
+                                                        <div class="col-md-1">
+                                                            
+                                                               <button class="dog-4"><img src="assets/images/dog4.jpg" hieght="200px" width="200px"></div></button> 
+                                     </div>
+                                    </div>
+                            <div class="p">
+                                <div id="total-score">your total score is:<span id="totalscore">0</span></div>
+                            
+                            
+                            </div>
+                            
+                         </div>
+            </div>
+        </div>
+         <!-- Link to JavaScript game.js -->
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+  
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var randomNumber = (Math.floor(Math.random() * 62)+1);
+var smallNum =  (Math.floor(Math.random() * 12)+1);
+var smallNum1 = (Math.floor(Math.random() * 12)+1);
+var smallNum2 = (Math.floor(Math.random() * 12)+1);
+var smallNum3 = (Math.floor(Math.random() * 12)+1);
+var total_score = 0;
+var wins = 0;
+var losses = 0;
+
+$(document).ready(function() {
+    function reset () {
+    total_score = 0
+    document.querySelector("#totalscore").innerHTML = total_score;
+    randomNumber = Math.floor(Math.random() * 51);
+    document.querySelector("#rando").innerHTML = randomNumber;
+   }
+
+   document.querySelector("#rando").innerHTML = randomNumber;
+    document.querySelector("#totalscore").innerHTML = total_score;
+
+//set variables
+
+function checkforwins() {
+    if (total_score === randomNumber) {
+        wins++;
+        document.querySelector("#howmany_wins").innerHTML = wins;
+        reset();
+     }
+
+    if (total_score > randomNumber) {
+        losses++;
+        document.querySelector("#howmany_losses").innerHTML = losses;
+        reset();
+    }
+   }
+
+
+      $(".dog-1").on("click", function() {
+        total_score=total_score+smallNum;
+        document.querySelector("#totalscore").innerHTML=total_score;
+        checkforwins()
+
+        });
+      $(".dog-2").on("click", function() {
+        total_score=total_score+smallNum1;
+        document.querySelector("#totalscore").innerHTML=total_score;;
+        checkforwins()
+        });
+      $(".dog-3").on("click", function() {
+        total_score=total_score+smallNum2;
+        document.querySelector("#totalscore").innerHTML=total_score;;
+        checkforwins()
+      });
+      $(".dog-4").on("click", function() {
+        total_score=total_score+smallNum3;
+        document.querySelector("#totalscore").innerHTML=total_score;;
+        checkforwins()
+      });
+
+
+
+
+
+});
+
+
+  </script>
+</body>
+</html>
